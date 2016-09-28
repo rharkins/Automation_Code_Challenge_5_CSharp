@@ -8,10 +8,10 @@ using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
 using OpenQA.Selenium.Firefox;
 using OpenQA.Selenium.Interactions;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
+//using Microsoft.VisualStudio.TestTools.UnitTesting;
 using NUnit.Framework;
 
-namespace Automation_Code_Challenge_6_CSharp
+namespace Automation_Code_Challenge_5_CSharp
 {
     class SeleniumWebdriverBaseClass
     {
@@ -19,10 +19,9 @@ namespace Automation_Code_Challenge_6_CSharp
         static public String baseWebPageURL = "http://www.skiutah.com";
         public bool browserStarted = false;
         public Dictionary<String, String> resortList = new Dictionary<String, String>();
-        public StreamWriter automation_code_challenge_6_sw = createOutputFile();
+        public StreamWriter automation_code_challenge_5_sw = createOutputFile();
 
 
-        [TestInitialize]
         public void startup()
         {
             initialize();
@@ -62,7 +61,7 @@ namespace Automation_Code_Challenge_6_CSharp
 
         public static StreamWriter createOutputFile()
         {
-            String outputFile = "C:/test/csharp_automation_code_challenge_6_output.txt";
+            String outputFile = "C:/test/csharp_automation_code_challenge_5_output.txt";
             // If file doesnt exists, then create it
             StreamWriter sw = new StreamWriter(outputFile);
             return sw;

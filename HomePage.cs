@@ -7,10 +7,10 @@ using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
 using OpenQA.Selenium.Firefox;
 using OpenQA.Selenium.Interactions;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
+//using Microsoft.VisualStudio.TestTools.UnitTesting;
 using NUnit.Framework;
 
-namespace Automation_Code_Challenge_6_CSharp
+namespace Automation_Code_Challenge_5_CSharp
 {
     class HomePage : SeleniumWebdriverBaseClass
     {
@@ -28,7 +28,7 @@ namespace Automation_Code_Challenge_6_CSharp
             if (String.IsNullOrEmpty(resortName))
             {
                 // Print that no resort name was entered
-                consoleAndOutputFilePrint(automation_code_challenge_6_sw, "No Resort Name entered");
+                consoleAndOutputFilePrint(automation_code_challenge_5_sw, "No Resort Name entered");
                 // Exit from method
                 return;
             }
@@ -43,32 +43,32 @@ namespace Automation_Code_Challenge_6_CSharp
             // Check if value returned from HashMap does not exist - returns null from HashMap
             if (String.IsNullOrEmpty(resortValueName))
             {
-                consoleAndOutputFilePrint(automation_code_challenge_6_sw, "Resort Name not found");
+                consoleAndOutputFilePrint(automation_code_challenge_5_sw, "Resort Name not found");
             }
 
             // Resort Name found in HashMap
             else
             {
                 // Print passed in resortName
-                // consoleAndOutputFilePrint(automation_code_challenge_6_sw, "Entered Resort Name = " + resortName);
+                // consoleAndOutputFilePrint(automation_code_challenge_5_sw, "Entered Resort Name = " + resortName);
                 // Print resortValueName from HashMap
-                // consoleAndOutputFilePrint(automation_code_challenge_6_sw, "Resort Value = " + resortValueName);
+                // consoleAndOutputFilePrint(automation_code_challenge_5_sw, "Resort Value = " + resortValueName);
                 // Get WebElement (first span tag) using resortValueName
                 IWebElement resortMileageFromAirport = driver.FindElementByXPath(("//span[@class='map-Area-shortName'][.='" + resortValueName + "']"));
                 // Print class value of WebElement
-                // consoleAndOutputFilePrint(automation_code_challenge_6_sw, resortMileageFromAirport.getAttribute("class"));
+                // consoleAndOutputFilePrint(automation_code_challenge_5_sw, resortMileageFromAirport.getAttribute("class"));
                 // Print text value of WebElement
-                // consoleAndOutputFilePrint(automation_code_challenge_6_sw, resortMileageFromAirport.getText());
+                // consoleAndOutputFilePrint(automation_code_challenge_5_sw, resortMileageFromAirport.getText());
                 // Get WebElement (span tag with distance value) using resortValueName
                 IWebElement resortMileageFromAirportElement = resortMileageFromAirport.FindElement(By.XPath("//span[@class='map-Area-shortName'][.='" + resortValueName + "']" + "/following-sibling::span[contains(@class,'distance')]"));
                 // Print class value of WebElement
-                // consoleAndOutputFilePrint(automation_code_challenge_6_sw, resortMileageFromAirportElement.getAttribute("class"));
+                // consoleAndOutputFilePrint(automation_code_challenge_5_sw, resortMileageFromAirportElement.getAttribute("class"));
                 // Print innerHtml value of WebElement
-                // consoleAndOutputFilePrint(automation_code_challenge_6_sw, resortMileageFromAirportElement.getAttribute("innerHTML"));
+                // consoleAndOutputFilePrint(automation_code_challenge_5_sw, resortMileageFromAirportElement.getAttribute("innerHTML"));
                 // Create a variable to hold the resortMileage value
                 String resortMileage = resortMileageFromAirportElement.GetAttribute("innerHTML");
                 // Print the mileage from the airport for the passed in resort name
-                consoleAndOutputFilePrint(automation_code_challenge_6_sw, resortValueName + " is " + resortMileage + " miles from the airport");
+                consoleAndOutputFilePrint(automation_code_challenge_5_sw, resortValueName + " is " + resortMileage + " miles from the airport");
 
             }
         }

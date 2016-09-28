@@ -10,12 +10,11 @@ using OpenQA.Selenium.Chrome;
 using OpenQA.Selenium.Firefox;
 using OpenQA.Selenium.Interactions;
 using OpenQA.Selenium.Support.UI;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
+//using Microsoft.VisualStudio.TestTools.UnitTesting;
 using NUnit.Framework;
 
-namespace Automation_Code_Challenge_6_CSharp
+namespace Automation_Code_Challenge_5_CSharp
 {
-    [TestClass]
     class Utils : SeleniumWebdriverBaseClass
     {
         static void Main(string[] args)
@@ -36,13 +35,13 @@ namespace Automation_Code_Challenge_6_CSharp
             // Get page title of current page
             String pageTitle = driver.Title;
             // Print page title of current page
-            consoleAndOutputFilePrint(automation_code_challenge_6_sw, "Page title of current page is: " + pageTitle);
+            consoleAndOutputFilePrint(automation_code_challenge_5_sw, "Page title of current page is: " + pageTitle);
             // Print title string to test
-            consoleAndOutputFilePrint(automation_code_challenge_6_sw, "Title String to Test is: " + titleStringToTest);
+            consoleAndOutputFilePrint(automation_code_challenge_5_sw, "Title String to Test is: " + titleStringToTest);
             // Test that the titleStringToTest = title of current page
             //Assert.assertTrue(pageTitle.equals(titleStringToTest), "Current Page Title is not equal to the expected page title value");
             // If there is no Assertion Error, Print out that the Current Page Title = Expected Page Title
-            consoleAndOutputFilePrint(automation_code_challenge_6_sw, "Current Page Title = Expected Page Title");
+            consoleAndOutputFilePrint(automation_code_challenge_5_sw, "Current Page Title = Expected Page Title");
         }
 
         private void verifyNavigation(String navigationMenu, String validationString)
@@ -91,7 +90,7 @@ namespace Automation_Code_Challenge_6_CSharp
             else
             {
                 // Print message indicating that the navigation menu passed in to this method does not exist on the page
-                consoleAndOutputFilePrint(automation_code_challenge_6_sw, navigationMenu + " navigation menu does not exist on this page");
+                consoleAndOutputFilePrint(automation_code_challenge_5_sw, navigationMenu + " navigation menu does not exist on this page");
             }
         }
 
@@ -132,9 +131,9 @@ namespace Automation_Code_Challenge_6_CSharp
                 // Write search results header if there is at least 1 element in the search result
                 if (pageSearchResultElements.Count() > 0)
                 {
-                    consoleAndOutputFilePrint(automation_code_challenge_6_sw, "");
-                    consoleAndOutputFilePrint(automation_code_challenge_6_sw, "Search Results");
-                    consoleAndOutputFilePrint(automation_code_challenge_6_sw, "");
+                    consoleAndOutputFilePrint(automation_code_challenge_5_sw, "");
+                    consoleAndOutputFilePrint(automation_code_challenge_5_sw, "Search Results");
+                    consoleAndOutputFilePrint(automation_code_challenge_5_sw, "");
                 }
                 // Print this page's search results to the console
                 //consoleSearchPrint(pageSearchResultElements);
@@ -160,7 +159,7 @@ namespace Automation_Code_Challenge_6_CSharp
             else
             {
                 // Print message indicating that the search dialog does not exist on the page
-                consoleAndOutputFilePrint(automation_code_challenge_6_sw, "The current page does not contain a Search For dialog box");
+                consoleAndOutputFilePrint(automation_code_challenge_5_sw, "The current page does not contain a Search For dialog box");
             }
 
         }
@@ -171,8 +170,8 @@ namespace Automation_Code_Challenge_6_CSharp
             //Console.WriteLine("ResultList size = " + resultList.Count());
             for (int listIndex = 0; listIndex < resultList.Count; listIndex++)
             {
-                consoleAndOutputFilePrint(automation_code_challenge_6_sw, resultList.ElementAt(listIndex).Text);
-                consoleAndOutputFilePrint(automation_code_challenge_6_sw, "--------------------");
+                consoleAndOutputFilePrint(automation_code_challenge_5_sw, resultList.ElementAt(listIndex).Text);
+                consoleAndOutputFilePrint(automation_code_challenge_5_sw, "--------------------");
             }
 
         }
@@ -182,20 +181,20 @@ namespace Automation_Code_Challenge_6_CSharp
         {
             for (int listIndex = 0; listIndex < resultList.Count(); listIndex++)
             {
-                //automation_code_challenge_6_sw.Write(resultList.ElementAt(listIndex).Text);
-                //automation_code_challenge_6_sw.WriteLine();
-                //automation_code_challenge_6_sw.Write("--------------------");
-                //automation_code_challenge_6_sw.WriteLine();
-                consoleAndOutputFilePrint(automation_code_challenge_6_sw, resultList.ElementAt(listIndex).Text);
-                //automation_code_challenge_6_sw.WriteLine();
-                consoleAndOutputFilePrint(automation_code_challenge_6_sw, "--------------------");
-                //automation_code_challenge_6_sw.WriteLine();
+                //automation_code_challenge_5_sw.Write(resultList.ElementAt(listIndex).Text);
+                //automation_code_challenge_5_sw.WriteLine();
+                //automation_code_challenge_5_sw.Write("--------------------");
+                //automation_code_challenge_5_sw.WriteLine();
+                consoleAndOutputFilePrint(automation_code_challenge_5_sw, resultList.ElementAt(listIndex).Text);
+                //automation_code_challenge_5_sw.WriteLine();
+                consoleAndOutputFilePrint(automation_code_challenge_5_sw, "--------------------");
+                //automation_code_challenge_5_sw.WriteLine();
             }
         }
 
         public void cleanup()
         {
-            automation_code_challenge_6_sw.Close();
+            automation_code_challenge_5_sw.Close();
         }
 
         // This method crawls every page of a domain
@@ -209,9 +208,9 @@ namespace Automation_Code_Challenge_6_CSharp
                 ArrayList pagesVisited = new ArrayList();
                 String currentPageURL = baseWebPageURL;
                 pagesVisited.Add(baseWebPageURL);
-                consoleAndOutputFilePrint(automation_code_challenge_6_sw, "WebCrawler Start Time - " + crawlerStartTime);
-                consoleAndOutputFilePrint(automation_code_challenge_6_sw, "pagesVisited size = " + pagesVisited.Count);
-                consoleAndOutputFilePrint(automation_code_challenge_6_sw, "pagesVisited website = " + (pagesVisited.Count - 1));
+                consoleAndOutputFilePrint(automation_code_challenge_5_sw, "WebCrawler Start Time - " + crawlerStartTime);
+                consoleAndOutputFilePrint(automation_code_challenge_5_sw, "pagesVisited size = " + pagesVisited.Count);
+                consoleAndOutputFilePrint(automation_code_challenge_5_sw, "pagesVisited website = " + (pagesVisited.Count - 1));
 
                 anchorTags = driver.FindElementsByXPath((".//a[@href[starts-with(.,'http://www.skiutah.com') and not(contains(., '@@')) and not(contains(., '?'))]]"));
                 //anchorTags = driver.FindElementsByXPath((".//a[@href[starts-with(.,'http://www.skiutah.com') and not(contains(., '@@')) and not(contains(., 'blog')) and not(contains(., '?'))]]"));
@@ -228,11 +227,11 @@ namespace Automation_Code_Challenge_6_CSharp
                     if (!pagesVisited.Contains(hrefValues) && !pagesToVisit.Contains(hrefValues))
                     {
                         pagesToVisit.Add(hrefValues);
-                        consoleAndOutputFilePrint(automation_code_challenge_6_sw, hrefValues);
+                        consoleAndOutputFilePrint(automation_code_challenge_5_sw, hrefValues);
                     }
                 }
-                consoleAndOutputFilePrint(automation_code_challenge_6_sw, pagesToVisit.Count + " - pages left to visit");
-                consoleAndOutputFilePrint(automation_code_challenge_6_sw, "--------------------");
+                consoleAndOutputFilePrint(automation_code_challenge_5_sw, pagesToVisit.Count + " - pages left to visit");
+                consoleAndOutputFilePrint(automation_code_challenge_5_sw, "--------------------");
                 // Remove current page from pagesToVisit List
                 pagesToVisit.Remove(currentPageURL);
                 // Loop through pagesToVisit List until list is empty
@@ -242,8 +241,8 @@ namespace Automation_Code_Challenge_6_CSharp
                     anchorTags = null;
                     driver.Url = (pagesToVisit[0].ToString());
                     pagesVisited.Add(pagesToVisit[0]);
-                    consoleAndOutputFilePrint(automation_code_challenge_6_sw, "pagesVisited size = " + pagesVisited.Count);
-                    consoleAndOutputFilePrint(automation_code_challenge_6_sw, "pagesVisited website = " + (pagesVisited.Count - 1));
+                    consoleAndOutputFilePrint(automation_code_challenge_5_sw, "pagesVisited size = " + pagesVisited.Count);
+                    consoleAndOutputFilePrint(automation_code_challenge_5_sw, "pagesVisited website = " + (pagesVisited.Count - 1));
                     currentPageURL = (pagesToVisit[0].ToString());
                     anchorTags = driver.FindElementsByXPath((".//a[@href[starts-with(.,'http://www.skiutah.com') and not(contains(., '@@')) and not(contains(., '?'))]]"));
                     //anchorTags = driver.FindElementsByXPath((".//a[@href[starts-with(.,'http://www.skiutah.com') and not(contains(., '@@')) and not(contains(., 'blog')) and not(contains(., '?'))]]"));
@@ -260,11 +259,11 @@ namespace Automation_Code_Challenge_6_CSharp
                         if (!pagesVisited.Contains(hrefValues) && !pagesToVisit.Contains(hrefValues))
                         {
                             pagesToVisit.Add(hrefValues);
-                            consoleAndOutputFilePrint(automation_code_challenge_6_sw, hrefValues);
+                            consoleAndOutputFilePrint(automation_code_challenge_5_sw, hrefValues);
                         }
                     }
-                    consoleAndOutputFilePrint(automation_code_challenge_6_sw, pagesToVisit.Count + " - pages left to visit");
-                    consoleAndOutputFilePrint(automation_code_challenge_6_sw, "--------------------");
+                    consoleAndOutputFilePrint(automation_code_challenge_5_sw, pagesToVisit.Count + " - pages left to visit");
+                    consoleAndOutputFilePrint(automation_code_challenge_5_sw, "--------------------");
                     // Remove current page from pagesToVisit List
                     pagesToVisit.Remove(currentPageURL);
                     // Clear out hrefAttributeValues list
@@ -272,9 +271,9 @@ namespace Automation_Code_Challenge_6_CSharp
 
                 }
 
-                consoleAndOutputFilePrint(automation_code_challenge_6_sw, pagesVisited.Count.ToString());
+                consoleAndOutputFilePrint(automation_code_challenge_5_sw, pagesVisited.Count.ToString());
                 DateTime crawlerEndTime = DateTime.Now;
-                consoleAndOutputFilePrint(automation_code_challenge_6_sw, "WebCrawler End Time - " + crawlerEndTime);
+                consoleAndOutputFilePrint(automation_code_challenge_5_sw, "WebCrawler End Time - " + crawlerEndTime);
                 TimeSpan elapsedCrawlerTime = crawlerEndTime.Subtract(crawlerStartTime);
                 long elapsedCrawlerTimeInMinutes = elapsedCrawlerTime.Minutes;
                 long elapsedCrawlerTimeInHours = elapsedCrawlerTime.Hours;
@@ -282,11 +281,11 @@ namespace Automation_Code_Challenge_6_CSharp
                 long elapsedCrawlerTimeRemainingMinutes = elapsedCrawlerTimeRemainingMinutesDuration.Minutes;
                 if (elapsedCrawlerTimeRemainingMinutes == 1)
                 {
-                    consoleAndOutputFilePrint(automation_code_challenge_6_sw, "Total WebCrawler Elapsed Time - " + elapsedCrawlerTimeInHours + " hours" + " " + elapsedCrawlerTimeRemainingMinutes + " minute");
+                    consoleAndOutputFilePrint(automation_code_challenge_5_sw, "Total WebCrawler Elapsed Time - " + elapsedCrawlerTimeInHours + " hours" + " " + elapsedCrawlerTimeRemainingMinutes + " minute");
                 }
                 else
                 {
-                    consoleAndOutputFilePrint(automation_code_challenge_6_sw, "Total WebCrawler Elapsed Time - " + elapsedCrawlerTimeInHours + " hours" + " " + elapsedCrawlerTimeRemainingMinutes + " minutes");
+                    consoleAndOutputFilePrint(automation_code_challenge_5_sw, "Total WebCrawler Elapsed Time - " + elapsedCrawlerTimeInHours + " hours" + " " + elapsedCrawlerTimeRemainingMinutes + " minutes");
 
                 }
 
